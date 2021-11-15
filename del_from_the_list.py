@@ -10,11 +10,12 @@ c). Также не следует использовать метод `pop(k)` 
 d). Использовать оператор del НЕЛЬЗЯ!
 """
 
-list_in = list(map(int, input("Введите список чисел через пробел: ").split()))
-idx_in = int(input("Введите индекс чила которое надо удалить: "))
 
-for i in list_in:
-    if i == idx_in:
-        list_in.pop(idx_in)
-        list_in.pop()
-print(' '.join([str(i) for i in list_in]))
+
+list_in = [int(s) for s in input("Введите список чисел через пробел: ").split()]
+idx_in = int(input("Введите индекс чила которое надо удалить(от 0 до кол.чисел -1): "))
+for i in range(idx_in + 1, len(list_in)):
+    list_in[i - 1] = list_in[i]
+list_in.pop()
+
+print(list_in)
